@@ -1,0 +1,161 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %}Contact Us | Royal Touch Innovation{% endblock %}
+
+{% block content %}
+
+<!-- ===== HERO ===== -->
+<section class="relative h-[55vh] flex items-center justify-center text-center text-white overflow-hidden bg-royal-900">
+    <div class="absolute inset-0 bg-gradient-to-br from-royal-900 via-[#5a0f0f] to-royal-900"></div>
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-6">
+        <p class="text-royal-gold text-xs font-bold tracking-[0.3em] uppercase mb-4">Get In Touch</p>
+        <h1 class="font-serif text-4xl md:text-5xl leading-tight">Contact Royal Touch Innovation</h1>
+        <div class="w-14 h-0.5 bg-royal-gold mx-auto mt-5 mb-5"></div>
+        <p class="text-gray-300 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+            For bulk manufacturing inquiries, partnerships, or product discussions,
+            connect with our team directly through the details below.
+        </p>
+    </div>
+</section>
+
+
+<!-- ===== CONTACT INFO CARDS ===== -->
+<section class="py-16 bg-royal-light">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- Visit Us -->
+            <div class="bg-white rounded-2xl p-7 text-center shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div class="w-12 h-12 bg-royal-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-location-dot text-royal-gold text-lg"></i>
+                </div>
+                <h5 class="font-serif text-royal-900 text-lg mb-3">Visit Us</h5>
+                <p class="text-gray-500 text-xs leading-relaxed">
+                    G-201 & F-203, Riico Industrial Area 1st Phase,<br>
+                    Ajmer Road, Beawar, Rajasthan – 305901
+                </p>
+            </div>
+
+            <!-- Call Us -->
+            <div class="bg-white rounded-2xl p-7 text-center shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div class="w-12 h-12 bg-royal-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-phone text-royal-gold text-lg"></i>
+                </div>
+                <h5 class="font-serif text-royal-900 text-lg mb-3">Call Us</h5>
+                <p class="text-gray-500 text-sm">
+                    <a href="tel:+918955335009" class="hover:text-royal-900 transition">+91-8955335009</a>
+                </p>
+            </div>
+
+            <!-- Email Us -->
+            <div class="bg-white rounded-2xl p-7 text-center shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div class="w-12 h-12 bg-royal-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-envelope text-royal-gold text-lg"></i>
+                </div>
+                <h5 class="font-serif text-royal-900 text-lg mb-3">Email Us</h5>
+                <p class="text-gray-500 text-xs break-words">
+                    <a href="mailto:royaltouchinnovation@gmail.com" class="hover:text-royal-900 transition">
+                        royaltouchinnovation@gmail.com
+                    </a>
+                </p>
+            </div>
+
+            <!-- Opening Hours -->
+            <div class="bg-white rounded-2xl p-7 text-center shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div class="w-12 h-12 bg-royal-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-clock text-royal-gold text-lg"></i>
+                </div>
+                <h5 class="font-serif text-royal-900 text-lg mb-3">Opening Hours</h5>
+                <p class="text-gray-500 text-xs leading-relaxed">
+                    Mon – Sun<br>10:00 AM – 08:00 PM
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== MAP + SIDE PANEL ===== -->
+<section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+
+            <!-- Map (2/3 width) -->
+            <div class="lg:col-span-2">
+                <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 h-full" style="min-height: 420px;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.2079402116974!2d74.3391079!3d26.124762199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396971d78499b74b%3A0xd9e304c4d16cbece!2sROYAL%20TOUCH%20INNOVATION!5e0!3m2!1sen!2sin!4v1770876035176!5m2!1sen!2sin"
+                        class="w-full h-full"
+                        style="min-height: 420px; border:0;"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Right Panel (1/3 width) -->
+            <div class="flex flex-col gap-5">
+
+                <!-- Connect With Us -->
+                <div class="bg-royal-light rounded-2xl p-7 border border-gray-100 flex-1">
+                    <h5 class="font-serif text-royal-900 text-lg mb-2">Connect With Us</h5>
+                    <p class="text-gray-400 text-xs mb-5">Follow our journey and stay updated.</p>
+
+                    <div class="space-y-3">
+                        <a href="https://www.instagram.com/royaltouchinnovation" target="_blank"
+                           class="flex items-center gap-3 text-royal-900 hover:text-royal-gold transition text-sm font-medium">
+                            <div class="w-8 h-8 bg-royal-900 rounded-full flex items-center justify-center shrink-0">
+                                <i class="bi bi-instagram text-royal-gold text-xs"></i>
+                            </div>
+                            @royaltouchinnovation
+                        </a>
+                        <a href="mailto:royaltouchinnovation@gmail.com"
+                           class="flex items-center gap-3 text-royal-900 hover:text-royal-gold transition text-sm font-medium">
+                            <div class="w-8 h-8 bg-royal-900 rounded-full flex items-center justify-center shrink-0">
+                                <i class="bi bi-envelope text-royal-gold text-xs"></i>
+                            </div>
+                            royaltouchinnovation@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Card -->
+                <div class="bg-royal-900 text-white rounded-2xl p-7">
+                    <div class="w-10 h-10 bg-[#25D366] rounded-full flex items-center justify-center mb-4">
+                        <i class="fa-brands fa-whatsapp text-white text-lg"></i>
+                    </div>
+                    <h5 class="font-serif text-lg mb-2">Quick Response?</h5>
+                    <p class="text-gray-400 text-xs mb-5 leading-relaxed">
+                        Message us on WhatsApp for instant queries and faster turnaround.
+                    </p>
+                    <a href="https://wa.me/918955335009" target="_blank"
+                       class="block text-center bg-royal-gold hover:bg-yellow-400 text-royal-900 font-bold py-3 rounded-full transition-all duration-300 text-sm tracking-wide">
+                        Chat on WhatsApp
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== CTA ===== -->
+<section class="py-16 bg-gradient-to-r from-royal-900 to-[#4b070f] text-center text-white">
+    <div class="max-w-3xl mx-auto px-6">
+        <h2 class="font-serif text-3xl md:text-4xl mb-5">
+            Looking for Bulk Manufacturing Solutions?
+        </h2>
+        <a href="{% url 'products' %}"
+           class="inline-block bg-royal-gold hover:bg-yellow-400 text-royal-900 font-semibold px-10 py-4 rounded-full shadow-xl transition-all duration-300 hover:scale-105 text-sm tracking-wide">
+            Explore Our Products
+        </a>
+    </div>
+</section>
+
+{% endblock %}

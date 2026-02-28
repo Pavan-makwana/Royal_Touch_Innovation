@@ -1,0 +1,102 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block title %}Privacy Policy | Royal Touch Innovation{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<section class="relative h-[55vh] flex items-center justify-center text-center text-white overflow-hidden bg-royal-900">
+    <div class="absolute inset-0 bg-gradient-to-br from-royal-900 via-[#5a0f0f] to-royal-900"></div>
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-6">
+        <p class="text-royal-gold text-xs font-bold tracking-[0.3em] uppercase mb-4">Legal</p>
+        <h1 class="font-serif text-4xl md:text-5xl leading-tight">Privacy Policy</h1>
+        <div class="w-14 h-0.5 bg-royal-gold mx-auto mt-5"></div>
+    </div>
+</section>
+
+<!-- Content -->
+<section class="py-16 bg-royal-light">
+    <div class="max-w-3xl mx-auto px-6">
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12 space-y-8">
+
+            <p class="text-gray-500 text-sm leading-relaxed">
+                Royal Touch Innovation respects your privacy. This policy explains how we collect,
+                use, and protect your personal information when you interact with our website or services.
+            </p>
+
+            <div>
+                <h3 class="font-serif text-xl text-royal-900 mb-4 pb-2 border-b border-royal-gold/20">
+                    Information We Collect
+                </h3>
+                <ul class="space-y-2 text-gray-500 text-sm">
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-dot text-royal-gold text-xs shrink-0"></i>
+                        Full name
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-dot text-royal-gold text-xs shrink-0"></i>
+                        Phone number
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-dot text-royal-gold text-xs shrink-0"></i>
+                        Email address
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-dot text-royal-gold text-xs shrink-0"></i>
+                        Product enquiry details and requirements
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-serif text-xl text-royal-900 mb-4 pb-2 border-b border-royal-gold/20">
+                    How We Use Your Information
+                </h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Your information is used only to respond to product requests and facilitate business communication.
+                    We do not sell, trade, or share your personal data with third parties under any circumstances.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="font-serif text-xl text-royal-900 mb-4 pb-2 border-b border-royal-gold/20">
+                    Data Protection
+                </h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    All submitted data is securely stored and accessed only by authorized personnel.
+                    We implement appropriate technical and organizational measures to protect your information
+                    against unauthorized access, loss, or misuse.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="font-serif text-xl text-royal-900 mb-4 pb-2 border-b border-royal-gold/20">
+                    Contact
+                </h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    For any privacy concerns or data-related queries, please contact us at:
+                    <a href="mailto:royaltouchinnovation@gmail.com"
+                       class="text-royal-900 font-semibold hover:text-royal-gold transition ml-1">
+                        royaltouchinnovation@gmail.com
+                    </a>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="mt-6 text-center">
+            <a href="{% url 'home' %}"
+               class="text-sm text-gray-400 hover:text-royal-900 transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-arrow-left text-xs"></i>
+                Back to Home
+            </a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

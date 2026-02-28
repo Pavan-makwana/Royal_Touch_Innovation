@@ -1,0 +1,137 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block title %}Our Products | Royal Touch Innovation{% endblock %}
+
+{% block content %}
+
+<!-- ===== HERO SECTION ===== -->
+<section class="relative h-[55vh] flex items-center justify-center text-center text-white overflow-hidden bg-royal-900">
+
+    <!-- Gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-royal-900 via-[#5a0f0f] to-royal-900"></div>
+
+    <!-- Subtle texture overlay -->
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-4xl px-6">
+        <p class="text-royal-gold text-xs font-bold tracking-[0.3em] uppercase mb-4">
+            B2B Manufacturing Range
+        </p>
+        <h1 class="font-serif text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            Our Premium Products
+        </h1>
+        <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
+            Precision-crafted non-woven and paper packaging solutions for bulk procurement.
+        </p>
+        <a href="#products-section"
+           class="inline-block mt-8 border border-royal-gold text-royal-gold hover:bg-royal-gold hover:text-royal-900 font-semibold px-8 py-3 rounded-full transition-all duration-300 text-sm tracking-wide">
+            Explore Collection ↓
+        </a>
+    </div>
+
+</section>
+
+
+<!-- ===== PRODUCTS BY CATEGORY ===== -->
+<section class="py-20 bg-royal-light" id="products-section">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Section header -->
+        <div class="text-center mb-14">
+            <p class="text-royal-gold text-xs font-bold tracking-[0.3em] uppercase mb-3">What We Make</p>
+            <h2 class="font-serif text-4xl text-royal-900">Our Product Range</h2>
+            <div class="w-16 h-0.5 bg-royal-gold mx-auto mt-5"></div>
+        </div>
+
+        {% regroup products by category as category_list %}
+
+        {% for category_group in category_list %}
+        <div class="mb-16">
+
+            <!-- Category heading -->
+            <div class="flex items-center gap-4 mb-8">
+                <div class="h-px flex-grow bg-royal-gold/20"></div>
+                <h3 class="font-serif text-2xl text-royal-900 px-4 whitespace-nowrap">
+                    {{ category_group.grouper.name|default:"Uncategorized" }}
+                </h3>
+                <div class="h-px flex-grow bg-royal-gold/20"></div>
+            </div>
+
+            <!-- Product cards -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {% for product in category_group.list %}
+                <article class="bg-white rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col">
+
+                    {% if product.image %}
+                    <div class="overflow-hidden bg-white">
+                        <img src="{{ product.image.url }}"
+                             alt="{{ product.name }}"
+                             class="w-full object-contain p-4 hover:scale-105 transition-transform duration-500"
+                             style="max-height: 280px;">
+                    </div>
+                    {% else %}
+                    <div class="w-full h-60 bg-gray-100 flex items-center justify-center text-gray-400 text-sm">
+                        <i class="fa-regular fa-image text-3xl opacity-30"></i>
+                    </div>
+                    {% endif %}
+
+                    <div class="p-6 flex flex-col flex-grow">
+                        <p class="text-royal-gold text-[10px] font-bold tracking-widest uppercase mb-2">
+                            {{ category_group.grouper.name|default:"Product" }}
+                        </p>
+
+                        <h3 class="font-serif text-xl text-royal-900 font-semibold mb-3 leading-snug">
+                            {{ product.name }}
+                        </h3>
+
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
+                            {{ product.description|truncatewords:18 }}
+                        </p>
+
+                        <div class="flex gap-2 mb-5">
+                            <span class="text-[10px] font-bold text-royal-900 bg-royal-light border border-royal-gold/20 px-3 py-1 rounded-full tracking-wide">ISO Quality</span>
+                            <span class="text-[10px] font-bold text-royal-900 bg-royal-light border border-royal-gold/20 px-3 py-1 rounded-full tracking-wide">Bulk Ready</span>
+                        </div>
+
+                        <a href="{% url 'product_detail' product.slug %}"
+                           class="block w-full text-center bg-royal-900 hover:bg-[#5a0f0f] text-royal-gold font-semibold py-3 rounded-full transition-all duration-300 text-sm tracking-wide">
+                            View Details →
+                        </a>
+                    </div>
+
+                </article>
+                {% endfor %}
+            </div>
+
+        </div>
+        {% empty %}
+        <div class="text-center py-20 text-gray-400">
+            <i class="fa-solid fa-box-open text-5xl mb-4 opacity-30"></i>
+            <p>No products available at the moment.</p>
+        </div>
+        {% endfor %}
+
+    </div>
+</section>
+
+
+<!-- ===== CTA BANNER ===== -->
+<section class="py-16 bg-gradient-to-r from-royal-900 to-[#4b070f] text-center text-white">
+    <div class="max-w-3xl mx-auto px-6">
+        <h2 class="font-serif text-3xl md:text-4xl mb-5">
+            Need a Custom Quote for Bulk Order?
+        </h2>
+        <p class="text-gray-300 text-sm mb-8 leading-relaxed">
+            Get personalized pricing, technical data sheets, and delivery timelines for your procurement needs.
+        </p>
+        <a href="{% url 'contact' %}"
+           class="inline-block bg-royal-gold hover:bg-yellow-400 text-royal-900 font-semibold px-10 py-4 rounded-full shadow-xl transition-all duration-300 hover:scale-105 text-sm tracking-wide">
+            Request a Quote
+        </a>
+    </div>
+</section>
+
+{% endblock %}

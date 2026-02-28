@@ -1,0 +1,153 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block title %}Request Product | Royal Touch Innovation{% endblock %}
+
+{% block content %}
+
+<!-- Page header -->
+<section class="relative h-[55vh] flex items-center justify-center text-center text-white overflow-hidden bg-royal-900">
+    <div class="absolute inset-0 bg-gradient-to-br from-royal-900 via-[#5a0f0f] to-royal-900"></div>
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-6">
+        <p class="text-royal-gold text-xs font-bold tracking-[0.3em] uppercase mb-4">B2B Procurement</p>
+        <h1 class="font-serif text-4xl md:text-5xl leading-tight">Request a Product Inquiry</h1>
+        <div class="w-14 h-0.5 bg-royal-gold mx-auto mt-5 mb-5"></div>
+        <p class="text-gray-300 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+            Fill in the details below and our team will respond within 24 working hours with pricing and availability.
+        </p>
+    </div>
+</section>
+
+<!-- Form Section -->
+<section class="py-16 bg-royal-light">
+    <div class="max-w-2xl mx-auto px-6">
+
+        <!-- Alert messages -->
+        {% if messages %}
+        {% for message in messages %}
+        <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm flex items-center gap-3">
+            <i class="fa-solid fa-circle-exclamation text-red-500"></i>
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <!-- Form card -->
+        <div class="bg-white rounded-2xl shadow-xl border border-royal-gold/10 overflow-hidden">
+
+            <!-- Card header accent -->
+            <div class="h-1 bg-gradient-to-r from-royal-900 to-royal-gold"></div>
+
+            <div class="p-8 md:p-10">
+
+                <form method="POST" class="space-y-6">
+                    {% csrf_token %}
+
+                    <!-- Name -->
+                    <div>
+                        <label class="block text-xs font-bold text-royal-900 uppercase tracking-widest mb-2">
+                            Full Name <span class="text-royal-gold">*</span>
+                        </label>
+                        <input type="text"
+                               name="name"
+                               required
+                               placeholder="Your full name"
+                               class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-700 bg-royal-light/50 focus:outline-none focus:border-royal-gold focus:ring-1 focus:ring-royal-gold transition placeholder-gray-300">
+                    </div>
+
+                    <!-- Product -->
+                    <div>
+                        <label class="block text-xs font-bold text-royal-900 uppercase tracking-widest mb-2">
+                            Select Product <span class="text-royal-gold">*</span>
+                        </label>
+                        <select name="product"
+                                required
+                                class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-700 bg-royal-light/50 focus:outline-none focus:border-royal-gold focus:ring-1 focus:ring-royal-gold transition appearance-none cursor-pointer">
+                            <option value="" disabled selected>— Choose a Product —</option>
+                            {% for p in all_products %}
+                            <option value="{{ p.name }}" {% if p.id == product.id %}selected{% endif %}>
+                                {{ p.name }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Quantity + Phone (side by side) -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-royal-900 uppercase tracking-widest mb-2">
+                                Quantity <span class="text-royal-gold">*</span>
+                            </label>
+                            <input type="number"
+                                   name="quantity"
+                                   required
+                                   min="1"
+                                   placeholder="e.g. 1000"
+                                   class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-700 bg-royal-light/50 focus:outline-none focus:border-royal-gold focus:ring-1 focus:ring-royal-gold transition placeholder-gray-300">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-royal-900 uppercase tracking-widest mb-2">
+                                Mobile No. <span class="text-royal-gold">*</span>
+                            </label>
+                            <input type="tel"
+                                   name="phone"
+                                   required
+                                   placeholder="+91 XXXXX XXXXX"
+                                   class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-700 bg-royal-light/50 focus:outline-none focus:border-royal-gold focus:ring-1 focus:ring-royal-gold transition placeholder-gray-300">
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label class="block text-xs font-bold text-royal-900 uppercase tracking-widest mb-2">
+                            Email Address <span class="text-royal-gold">*</span>
+                        </label>
+                        <input type="email"
+                               name="email"
+                               required
+                               placeholder="yourname@company.com"
+                               class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-700 bg-royal-light/50 focus:outline-none focus:border-royal-gold focus:ring-1 focus:ring-royal-gold transition placeholder-gray-300">
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <label class="block text-xs font-bold text-royal-900 uppercase tracking-widest mb-2">
+                            Custom Requirements <span class="text-gray-300 normal-case tracking-normal font-normal">(Optional)</span>
+                        </label>
+                        <textarea name="message"
+                                  rows="4"
+                                  placeholder="Describe any specific customization, print design, or delivery requirements..."
+                                  class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-700 bg-royal-light/50 focus:outline-none focus:border-royal-gold focus:ring-1 focus:ring-royal-gold transition placeholder-gray-300 resize-none"></textarea>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit"
+                            class="w-full bg-royal-900 hover:bg-[#5a0f0f] text-royal-gold font-bold py-4 rounded-full shadow-lg transition-all duration-300 hover:scale-[1.02] uppercase text-sm tracking-widest">
+                        Submit Inquiry Request
+                    </button>
+
+                </form>
+
+                <!-- Assurance line -->
+                <p class="text-center text-xs text-gray-400 mt-5 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-lock text-royal-gold text-xs"></i>
+                    Your information is private and will only be used to process your inquiry.
+                </p>
+
+            </div>
+        </div>
+
+        <!-- Response time note -->
+        <div class="mt-6 p-4 bg-royal-900/5 border border-royal-gold/10 rounded-xl text-center">
+            <p class="text-xs text-gray-500 leading-relaxed">
+                <i class="fa-solid fa-clock text-royal-gold mr-1"></i>
+                Our team typically responds within <strong class="text-royal-900">24 working hours</strong> with a custom quote.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

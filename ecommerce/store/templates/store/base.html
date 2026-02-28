@@ -1,0 +1,249 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Royal Touch Innovation{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}Manufacturer of medical, non-woven and industrial products in Rajasthan.{% endblock %}">
+    <meta name="keywords" content="medical products, non woven products, manufacturing company, Rajasthan">
+    <meta name="author" content="Royal Touch Innovation">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Bootstrap Icons (fixes broken icons in contact page & WhatsApp FAB) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="{% static 'store/css/style.css' %}">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    royal: {
+                        900: '#4A0E1A',
+                        gold: '#caa44d',
+                        light: '#fdfbf7',
+                    }
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                    serif: ['Playfair Display', 'serif'],
+                }
+            }
+        }
+    }
+</script>
+
+    <style>
+        
+        a { transition: all 0.3s ease; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fdfbf7; }
+        ::-webkit-scrollbar-thumb { background: #4A0E1A; border-radius: 10px; }
+
+        /* Mobile menu slide-down animation */
+        #mobile-menu {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.3s ease;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+
+        /* WhatsApp floating action button */
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            width: 56px;
+            height: 56px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .whatsapp-fab:hover {
+            transform: scale(1.12);
+            box-shadow: 0 6px 28px rgba(37,211,102,0.6);
+        }
+        .whatsapp-fab i { font-size: 26px; color: #fff; }
+    </style>
+</head>
+
+<body class="bg-royal-light text-slate-900 font-sans flex flex-col min-h-screen">
+
+    <!-- Gold accent line -->
+    <div class="bg-royal-gold h-1 w-full"></div>
+
+    <!-- ===== HEADER ===== -->
+    <header class="bg-royal-light pt-4 pb-2 px-4">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Navbar pill -->
+            <div class="bg-royal-900 rounded-[60px] shadow-2xl px-6 md:px-15 py-3 flex items-center justify-between">
+
+                <!-- Brand -->
+                <a href="/" class="flex items-center space-x-3 group">
+                    <img src="{% static 'store/images/logo.jpg' %}"
+                         alt="Royal Touch Logo"
+                         class="h-10 w-10 rounded-full border-2 border-royal-gold shadow-md">
+                    <span class="font-serif text-[18px] md:text-[24px] tracking-wider text-royal-gold leading-tight">
+                        ROYAL TOUCH INNOVATION
+                    </span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center space-x-10 font-semibold text-white text-sm tracking-wide">
+                    <a href="{% url 'home' %}" class="hover:text-royal-gold transition duration-300">Home</a>
+                    <a href="{% url 'products' %}" class="hover:text-royal-gold transition duration-300">Products</a>
+                    <a href="{% url 'about' %}" class="hover:text-royal-gold transition duration-300">About Us</a>
+                    <a href="{% url 'contact' %}" class="hover:text-royal-gold transition duration-300">Contact Us</a>
+                </nav>
+
+                <!-- Hamburger (mobile) -->
+                <button id="hamburger-btn" class="md:hidden text-white focus:outline-none p-2" aria-label="Toggle menu">
+                    <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+
+            </div>
+
+            <!-- Mobile Dropdown Menu -->
+            <div id="mobile-menu" class="bg-royal-900 rounded-b-3xl mt-1 mx-2">
+                <nav class="flex flex-col py-4 px-8 font-semibold text-white text-sm tracking-wide">
+                    <a href="{% url 'home' %}" class="py-3 border-b border-white/10 hover:text-royal-gold transition">Home</a>
+                    <a href="{% url 'about' %}" class="py-3 border-b border-white/10 hover:text-royal-gold transition">About</a>
+                    <a href="{% url 'products' %}" class="py-3 border-b border-white/10 hover:text-royal-gold transition">Products</a>
+                    <a href="{% url 'contact' %}" class="py-3 hover:text-royal-gold transition">Contact</a>
+                </nav>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-gradient-to-br from-[#4A0E1A] via-[#3a0b14] to-[#2e0910] text-white pt-16 pb-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 lg:gap-16">
+
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-5 text-white">Royal Touch Innovation</h3>
+                    <div class="space-y-3 text-royal-gold text-sm leading-relaxed">
+                        <p class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-0.5 shrink-0"></i>
+                            Ricco-1, Ajmer Road, Beawar<br>Rajasthan 305901
+                        </p>
+                        <p class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone shrink-0"></i>
+                            +91 8955335009
+                        </p>
+                        <p class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope shrink-0"></i>
+                            royaltouchinnovation@gmail.com
+                        </p>
+                    </div>
+                    <div class="flex gap-3 mt-6">
+                        <a href="https://wa.me/918955335009" target="_blank"
+                           class="w-9 h-9 bg-white text-royal-900 flex items-center justify-center rounded-full hover:bg-royal-gold transition text-sm">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.instagram.com/royaltouchinnovation" target="_blank"
+                           class="w-9 h-9 bg-white text-royal-900 flex items-center justify-center rounded-full hover:bg-royal-gold transition text-sm">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="mailto:royaltouchinnovation@gmail.com"
+                           class="w-9 h-9 bg-white text-royal-900 flex items-center justify-center rounded-full hover:bg-royal-gold transition text-sm">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                        <a href="https://maps.google.com/?q=Royal+Touch+Innovation+Beawar" target="_blank"
+                           class="w-9 h-9 bg-white text-royal-900 flex items-center justify-center rounded-full hover:bg-royal-gold transition text-sm">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-5 text-white">Quick Links</h3>
+                    <ul class="space-y-3 text-royal-gold text-sm">
+                        <li><a href="{% url 'about' %}" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="{% url 'products' %}" class="hover:text-white transition">Products</a></li>
+                        <li><a href="{% url 'privacy_policy' %}" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="{% url 'terms_conditions' %}" class="hover:text-white transition">Terms & Conditions</a></li>
+                        <li><a href="{% url 'contact' %}" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-5 text-white">Business Hours</h3>
+                    <p class="text-white font-semibold text-sm mb-1">Monday – Sunday</p>
+                    <p class="text-royal-gold text-sm">10:00 AM – 08:00 PM</p>
+                    <p class="mt-4 text-xs text-white/50 leading-relaxed">
+                        Available for bulk orders<br>and manufacturing inquiries
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="mt-12 border-t border-white/20 pt-6 text-center text-xs text-white/60">
+                © <span id="yearFooter"></span> Royal Touch Innovation — All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp FAB -->
+    <a href="https://api.whatsapp.com/send?phone=+918955335009&text=Hello%20Royal%20Touch%20Innovation"
+       target="_blank"
+       class="whatsapp-fab"
+       aria-label="Chat on WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <script>
+        document.getElementById("yearFooter").textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const btn = document.getElementById('hamburger-btn');
+        const menu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('icon-open');
+        const iconClose = document.getElementById('icon-close');
+
+        btn.addEventListener('click', () => {
+            const isOpen = menu.classList.contains('open');
+            menu.classList.toggle('open');
+            iconOpen.classList.toggle('hidden', !isOpen);
+            iconClose.classList.toggle('hidden', isOpen);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+django
+gspread
+oauth2client
+Pillow
+google-auth

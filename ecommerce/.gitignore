@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+.env
+credentials.json
+**/credentials.json
+__pycache__/
+*.exe
+
+# Tailwind / Binaries
+
+.tailwindcss/
+
+# Static files (if you want them generated on the server instead)
+staticfiles/
+

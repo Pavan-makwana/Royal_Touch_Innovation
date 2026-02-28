@@ -1,0 +1,93 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block title %}Request Submitted | Royal Touch Innovation{% endblock %}
+
+{% block content %}
+
+<section class="min-h-[70vh] flex items-center justify-center bg-royal-light py-16">
+    <div class="max-w-lg w-full mx-auto px-6 text-center">
+
+        <!-- Success card -->
+        <div class="bg-white rounded-2xl shadow-xl border border-royal-gold/10 overflow-hidden">
+
+            <!-- Top gradient accent -->
+            <div class="h-1.5 bg-gradient-to-r from-royal-900 to-royal-gold"></div>
+
+            <div class="p-10">
+
+                <!-- Success icon -->
+                <div class="w-20 h-20 bg-green-50 border-2 border-green-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fa-solid fa-check text-3xl text-green-500"></i>
+                </div>
+
+                <h1 class="font-serif text-3xl text-royal-900 mb-3">Request Submitted!</h1>
+                <div class="w-12 h-0.5 bg-royal-gold mx-auto mb-5"></div>
+
+                <p class="text-gray-500 text-sm leading-relaxed mb-8">
+                    Thank you for your interest in our products. Your inquiry has been received and our team will reach out to you with a customized quote shortly.
+                </p>
+
+                <!-- Info grid -->
+                <div class="grid grid-cols-1 gap-3 mb-8 text-left">
+                    <div class="flex items-center gap-4 p-4 bg-royal-light rounded-xl border border-gray-100">
+                        <div class="w-9 h-9 bg-royal-900 rounded-full flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-clock text-royal-gold text-xs"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-royal-900 uppercase tracking-wide">Response Time</p>
+                            <p class="text-sm text-gray-500">Within 24 working hours</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 bg-royal-light rounded-xl border border-gray-100">
+                        <div class="w-9 h-9 bg-royal-900 rounded-full flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-location-dot text-royal-gold text-xs"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-royal-900 uppercase tracking-wide">Our Location</p>
+                            <p class="text-sm text-gray-500">RIICO-1, Ajmer Road, Beawar, Rajasthan</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 bg-royal-light rounded-xl border border-gray-100">
+                        <div class="w-9 h-9 bg-royal-900 rounded-full flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-envelope text-royal-gold text-xs"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-royal-900 uppercase tracking-wide">Email</p>
+                            <p class="text-sm text-gray-500">royaltouchinnovation@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action buttons -->
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="{% url 'home' %}"
+                       class="flex-1 text-center bg-royal-900 hover:bg-[#5a0f0f] text-royal-gold font-semibold py-3 rounded-full transition-all duration-300 text-sm tracking-wide">
+                        Back to Home
+                    </a>
+                    <a href="{% url 'products' %}"
+                       class="flex-1 text-center border border-royal-900 text-royal-900 hover:bg-royal-900 hover:text-white font-semibold py-3 rounded-full transition-all duration-300 text-sm tracking-wide">
+                        View More Products
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- WhatsApp nudge -->
+        <div class="mt-6 p-4 bg-[#25D366]/10 border border-[#25D366]/20 rounded-xl text-center">
+            <p class="text-xs text-gray-600">
+                Need faster assistance?
+                <a href="https://wa.me/918955335009" target="_blank"
+                   class="text-[#25D366] font-semibold hover:underline ml-1">
+                    <i class="fa-brands fa-whatsapp mr-1"></i>Chat on WhatsApp
+                </a>
+            </p>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

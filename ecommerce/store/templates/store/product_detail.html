@@ -1,0 +1,139 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block title %}{{ product.name }} | Royal Touch Innovation{% endblock %}
+
+{% block content %}
+
+<!-- Breadcrumb -->
+<nav class="bg-white border-b border-gray-100 py-3">
+    <div class="max-w-6xl mx-auto px-6 text-xs font-bold tracking-widest text-gray-400 uppercase flex items-center gap-2">
+        <a href="{% url 'home' %}" class="hover:text-royal-900 transition">Home</a>
+        <span class="text-gray-300">/</span>
+        <a href="{% url 'products' %}" class="hover:text-royal-900 transition">Products</a>
+        <span class="text-gray-300">/</span>
+        <span class="text-royal-gold">{{ product.name }}</span>
+    </div>
+</nav>
+
+<!-- Product Detail -->
+<section class="bg-royal-light py-12">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+
+            <div class="flex flex-col lg:flex-row">
+
+                <!-- LEFT: Image Panel -->
+                <div class="lg:w-2/5 bg-gray-50 border-r border-gray-100 flex flex-col">
+
+                    <!-- Image container -->
+                    <div class="flex-1 flex items-center justify-center p-8 relative">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-royal-900 text-royal-gold text-[9px] font-bold px-3 py-1.5 tracking-wider rounded-sm uppercase shadow">
+                                Certified Quality
+                            </span>
+                        </div>
+
+                        {% if product.image %}
+                        <img src="{{ product.image.url }}"
+                             alt="{{ product.name }}"
+                             class="max-h-72 w-full object-contain drop-shadow-md hover:scale-[1.03] transition-transform duration-500">
+                        {% else %}
+                        <div class="w-full h-64 bg-gray-100 flex items-center justify-center text-gray-300 rounded-xl">
+                            <div class="text-center">
+                                <i class="fa-regular fa-image text-5xl mb-3"></i>
+                                <p class="text-sm">No Image Available</p>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Trust badges -->
+                    <div class="grid grid-cols-3 border-t border-gray-100">
+                        <div class="p-4 text-center border-r border-gray-100">
+                            <i class="fa-solid fa-certificate text-royal-gold text-base mb-1.5 block"></i>
+                            <p class="text-[9px] font-bold text-royal-900 uppercase tracking-tight">ISO Standard</p>
+                        </div>
+                        <div class="p-4 text-center border-r border-gray-100">
+                            <i class="fa-solid fa-boxes-stacked text-royal-gold text-base mb-1.5 block"></i>
+                            <p class="text-[9px] font-bold text-royal-900 uppercase tracking-tight">Bulk Supply</p>
+                        </div>
+                        <div class="p-4 text-center">
+                            <i class="fa-solid fa-shield-halved text-royal-gold text-base mb-1.5 block"></i>
+                            <p class="text-[9px] font-bold text-royal-900 uppercase tracking-tight">Sterile Pack</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT: Details Panel -->
+                <div class="lg:w-3/5 p-8 lg:p-10 flex flex-col justify-between">
+
+                    <div>
+                        <p class="text-royal-gold font-bold tracking-[0.2em] text-[10px] uppercase mb-2">Product Details</p>
+                        <h1 class="font-serif text-3xl text-royal-900 leading-snug mb-3">
+                            {{ product.name }}
+                        </h1>
+                        <div class="h-0.5 w-12 bg-royal-gold mb-5"></div>
+
+                        {% if product.category %}
+                        <span class="inline-block text-[10px] font-bold text-royal-900 bg-royal-light border border-royal-gold/20 px-3 py-1 rounded-full tracking-wide uppercase mb-5">
+                            {{ product.category.name }}
+                        </span>
+                        {% endif %}
+
+                        <p class="text-gray-500 text-sm leading-relaxed mb-7">
+                            {{ product.description }}
+                        </p>
+
+                        <!-- Specifications Table -->
+                        <div class="overflow-hidden rounded-xl border border-gray-100 shadow-sm mb-8">
+                            <table class="w-full text-left text-sm">
+                                <thead class="bg-royal-900 text-white">
+                                    <tr>
+                                        <th class="px-5 py-3 font-serif italic font-normal text-xs">Specification</th>
+                                        <th class="px-5 py-3 font-serif italic font-normal text-xs">Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-100">
+                                    <tr class="hover:bg-royal-light transition-colors">
+                                        <td class="px-5 py-3 font-semibold text-royal-900 text-xs">Material</td>
+                                        <td class="px-5 py-3 text-gray-500 text-xs">Premium Non-Woven Polypropylene</td>
+                                    </tr>
+                                    <tr class="hover:bg-royal-light transition-colors">
+                                        <td class="px-5 py-3 font-semibold text-royal-900 text-xs">Application</td>
+                                        <td class="px-5 py-3 text-gray-500 text-xs">Medical / Industrial Grade</td>
+                                    </tr>
+                                    <tr class="hover:bg-royal-light transition-colors">
+                                        <td class="px-5 py-3 font-semibold text-royal-900 text-xs">Origin</td>
+                                        <td class="px-5 py-3 text-gray-500 text-xs">Rajasthan, India</td>
+                                    </tr>
+                                    <tr class="hover:bg-royal-light transition-colors">
+                                        <td class="px-5 py-3 font-semibold text-royal-900 text-xs">MOQ</td>
+                                        <td class="px-5 py-3 text-gray-500 text-xs">500 – 1000 pieces (see T&C)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- CTA + Back -->
+                    <div>
+                        <a href="/request/{{ product.id }}/"
+                           class="block w-full text-center bg-royal-900 hover:bg-[#6B1A2A] text-royal-gold font-bold py-3.5 rounded-full shadow transition-all duration-300 uppercase text-xs tracking-widest mb-4">
+                            Request for Inquiry
+                        </a>
+                        <a href="{% url 'products' %}" class="text-xs text-gray-400 hover:text-royal-900 transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-arrow-left text-xs"></i>
+                            Back to all products
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

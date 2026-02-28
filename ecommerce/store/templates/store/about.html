@@ -1,0 +1,165 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %}About Us | Royal Touch Innovation{% endblock %}
+
+{% block content %}
+
+<!-- ===== HERO SECTION ===== -->
+<section class="relative h-[480px] flex items-center justify-center text-center text-white overflow-hidden">
+
+    <div class="absolute inset-0">
+        <img src="{% static 'store/images/hero-2.jpeg' %}"
+             class="w-full h-full object-cover"
+             alt="About Hero">
+        <div class="absolute inset-0 bg-gradient-to-br from-royal-900/80 via-[#5a0f0f]/70 to-royal-900/80"></div>
+    </div>
+
+    <!-- Texture overlay -->
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');"></div>
+
+    <div class="relative z-10 max-w-4xl px-6">
+        <p class="text-royal-gold text-xs font-bold tracking-[0.3em] uppercase mb-5">Who We Are</p>
+        <h1 class="font-serif text-4xl md:text-6xl mb-5 leading-tight">
+            About Royal Touch Innovation
+        </h1>
+        <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
+            A trusted manufacturer of non-woven and paper packaging solutions,
+            delivering precision, sustainability, and premium quality.
+        </p>
+    </div>
+
+</section>
+
+
+<!-- ===== COMPANY STORY ===== -->
+<section class="py-20 bg-royal-light">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
+
+        <div>
+            <p class="text-royal-gold text-xs font-bold tracking-[0.3em] uppercase mb-4">Our Story</p>
+            <h2 class="font-serif text-4xl text-royal-900 mb-6 leading-tight">
+                Built on a Vision of Redefining Packaging
+            </h2>
+            <div class="w-14 h-0.5 bg-royal-gold mb-7"></div>
+            <p class="text-base leading-relaxed text-gray-600 mb-5">
+                Royal Touch Innovation was founded with a vision to redefine
+                packaging standards in India. With a strong focus on innovation,
+                precision manufacturing, and sustainable practices, we deliver
+                high-quality non-woven and paper packaging solutions.
+            </p>
+            <p class="text-base leading-relaxed text-gray-600">
+                Our commitment to excellence ensures that every product reflects
+                strength, creativity, and reliability — serving businesses across India.
+            </p>
+        </div>
+
+        <div>
+            <img src="{% static 'store/images/about.jpeg' %}"
+                 alt="Royal Touch Innovation Factory"
+                 class="rounded-2xl shadow-2xl w-full">
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ===== MISSION & VISION ===== -->
+<section class="py-20 bg-royal-900 text-white">
+    <div class="max-w-6xl mx-auto px-6">
+
+        <div class="text-center mb-12">
+            <p class="text-royal-gold text-xs font-bold tracking-[0.3em] uppercase mb-3">Our Purpose</p>
+            <h2 class="font-serif text-4xl">Mission & Vision</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white/10 backdrop-blur-lg p-10 rounded-2xl border border-white/10 hover:bg-white/15 transition">
+                <div class="w-12 h-12 bg-royal-gold/20 rounded-full flex items-center justify-center mb-5">
+                    <i class="fa-solid fa-bullseye text-royal-gold text-lg"></i>
+                </div>
+                <h3 class="text-2xl font-serif text-royal-gold mb-4">Our Mission</h3>
+                <p class="text-gray-300 leading-relaxed text-sm">
+                    To provide innovative, sustainable, and premium packaging
+                    solutions that empower businesses and enhance brand identity.
+                </p>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-lg p-10 rounded-2xl border border-white/10 hover:bg-white/15 transition">
+                <div class="w-12 h-12 bg-royal-gold/20 rounded-full flex items-center justify-center mb-5">
+                    <i class="fa-solid fa-eye text-royal-gold text-lg"></i>
+                </div>
+                <h3 class="text-2xl font-serif text-royal-gold mb-4">Our Vision</h3>
+                <p class="text-gray-300 leading-relaxed text-sm">
+                    To become India's most trusted packaging partner by combining
+                    technology, quality, and customer satisfaction.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="py-20 bg-royal-light">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+
+        <p class="text-royal-gold text-xs font-bold tracking-[0.3em] uppercase mb-3">Our Strengths</p>
+        <h2 class="font-serif text-4xl text-royal-900 mb-14">Why Choose Us</h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <div class="p-8 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div class="w-12 h-12 bg-royal-900 rounded-full flex items-center justify-center mx-auto mb-5">
+                    <i class="fa-solid fa-medal text-royal-gold text-lg"></i>
+                </div>
+                <h4 class="text-lg font-semibold mb-3 text-royal-900">Premium Quality</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Strict quality standards ensure reliable and durable products in every batch.
+                </p>
+            </div>
+
+            <div class="p-8 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div class="w-12 h-12 bg-royal-900 rounded-full flex items-center justify-center mx-auto mb-5">
+                    <i class="fa-solid fa-leaf text-royal-gold text-lg"></i>
+                </div>
+                <h4 class="text-lg font-semibold mb-3 text-royal-900">Sustainable Manufacturing</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Eco-friendly processes that reduce environmental impact without compromising performance.
+                </p>
+            </div>
+
+            <div class="p-8 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div class="w-12 h-12 bg-royal-900 rounded-full flex items-center justify-center mx-auto mb-5">
+                    <i class="fa-solid fa-handshake text-royal-gold text-lg"></i>
+                </div>
+                <h4 class="text-lg font-semibold mb-3 text-royal-900">Customer Focused</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Dedicated support and customized solutions tailored to every client's requirements.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ===== CTA SECTION ===== -->
+<section class="py-20 bg-gradient-to-r from-royal-900 to-[#4b070f] text-center text-white">
+    <div class="max-w-3xl mx-auto px-6">
+        <h2 class="font-serif text-4xl mb-5">
+            Looking for Reliable Manufacturing Solutions?
+        </h2>
+        <p class="text-gray-300 text-sm mb-8">
+            Partner with us for premium quality, bulk supply, and on-time delivery across India.
+        </p>
+        <a href="{% url 'products' %}"
+           class="inline-block bg-royal-gold hover:bg-yellow-400 text-royal-900 font-semibold px-10 py-4 rounded-full shadow-xl transition-all duration-300 hover:scale-105 text-sm tracking-wide">
+            Explore Our Products
+        </a>
+    </div>
+</section>
+
+{% endblock %}
